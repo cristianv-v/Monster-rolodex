@@ -10,7 +10,8 @@ class App extends Component{
     super();
     this.state ={
       monsters : [],
-      searchField:''
+      searchField:'',
+      title: ''
     };
   }
 
@@ -20,16 +21,11 @@ class App extends Component{
       .then(users => this.setState({ monsters: users}));
   }
 
-  // handleChange = (e) =>{
-  //   this.setState({ 
-  //     searchField: e.target.value
-  //   })
-  // };
-
-  onSearchChange = (e) => {
+  onSearchChange = event => {
     this.setState({ 
-      searchField: e.target.value,
-   });
+      searchField: event.target.value,
+      title: event.target.value
+    });
   };
 
   render() {
@@ -39,12 +35,9 @@ class App extends Component{
       );
 
     return (
-    <div className="App">
-      <h1> Monsters Rolodex </h1>
-      <SearchBox 
-        placeholder='search monsters'
-        onSearchChange
-      />
+    <div className="App"> 
+      <h1>Monster Rolodex</h1>
+      <SearchBox onSearchChange={this.onSearchChange} />
       <CardList monsters={filteredMonsters} />
     </div>
    );
