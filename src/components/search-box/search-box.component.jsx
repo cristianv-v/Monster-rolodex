@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './search-box.styles.css'
+import './search-box.styles.css';
 
 export const SearchBox = ({ placeholder, handleChange }) => (
     <input
@@ -9,4 +9,4 @@ export const SearchBox = ({ placeholder, handleChange }) => (
     placeholder={placeholder}
     onChange={handleChange}
     />
-)
+);
